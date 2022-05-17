@@ -1,12 +1,14 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
-function HireForm({ person, addHiringPerson, location }) {
+function HireForm({ person, addHiringPerson }) {
   const [wage, setWage] = useState(0);
+  const navigate = useNavigate();
 
   function handleSubmit(event) {
     event.preventDefault();
     addHiringPerson({ ...person, wage: wage });
-    location.pathname = "/dashboard";
+    navigate("/dashboard");
   }
 
   return (

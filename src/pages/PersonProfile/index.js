@@ -18,11 +18,7 @@ function PersonProfile({ addHiringPerson }) {
       <h2>
         {person.name.first} {person.name.last}
       </h2>
-      <HireForm
-        person={person}
-        addHiringPerson={addHiringPerson}
-        location={location}
-      />
+      <HireForm person={person} addHiringPerson={addHiringPerson} />
     </article>
   );
 }

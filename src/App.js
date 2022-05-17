@@ -7,8 +7,8 @@ import "./styles.css";
 
 const App = () => {
   const [hiredPeople, setHiredPeople] = useState([]);
-
   const addHiringPerson = (person) => setHiredPeople([...hiredPeople, person]);
+
   return (
     <>
       <header>
