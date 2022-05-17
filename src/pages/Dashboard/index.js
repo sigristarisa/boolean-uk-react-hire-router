@@ -10,7 +10,6 @@ const Dashboard = ({ hiredPeople }) => {
       .then((peopleData) => setPeople(peopleData.results));
   }, []);
 
-  console.log(people);
   return (
     <main className="dashboard-layout">
       <section>
