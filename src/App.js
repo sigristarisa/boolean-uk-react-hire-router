@@ -1,8 +1,9 @@
-import { useState } from "react"
-import "./styles.css"
+import { useState } from "react";
+import Dashboard from "./pages/Dashboard/index";
+import "./styles.css";
 
-export default function App() {
-  const [hiredPeople, setHiredPeople] = useState([])
+const App = () => {
+  const [hiredPeople, setHiredPeople] = useState([]);
 
   return (
     <>
@@ -10,10 +11,12 @@ export default function App() {
         <h1>Hire Your Team</h1>
         <nav>
           <ul>
-            <li>Dashboard</li>
+            <Dashboard hiredPeople={hiredPeople} />
           </ul>
         </nav>
       </header>
     </>
-  )
-}
+  );
+};
+
+export default App;
