@@ -1,11 +1,12 @@
 import { useState } from "react";
 
-function HireForm({ person, addHiringPerson }) {
+function HireForm({ person, addHiringPerson, location }) {
   const [wage, setWage] = useState(0);
 
   function handleSubmit(event) {
     event.preventDefault();
     addHiringPerson({ ...person, wage: wage });
+    location.pathname = "/dashboard";
   }
 
   return (

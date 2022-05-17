@@ -7,7 +7,6 @@ function PersonProfile({ addHiringPerson }) {
   const location = useLocation();
 
   useEffect(() => {
-    console.log(location);
     const personData = location.state.person;
     setPerson(personData);
   }, []);
@@ -19,7 +18,11 @@ function PersonProfile({ addHiringPerson }) {
       <h2>
         {person.name.first} {person.name.last}
       </h2>
-      <HireForm person={person} addHiringPerson={addHiringPerson} />
+      <HireForm
+        person={person}
+        addHiringPerson={addHiringPerson}
+        location={location}
+      />
     </article>
   );
 }
