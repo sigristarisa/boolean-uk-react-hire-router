@@ -8,6 +8,7 @@ import "./styles.css";
 const App = () => {
   const [hiredPeople, setHiredPeople] = useState([]);
 
+  const addHiringPerson = (person) => setHiredPeople([...hiredPeople, person]);
   return (
     <>
       <header>
@@ -22,7 +23,7 @@ const App = () => {
               />
               <Route
                 path="/dashboard/profile/:id"
-                element={<PersonProfile />}
+                element={<PersonProfile addHiringPerson={addHiringPerson} />}
               />
             </Routes>
           </ul>
