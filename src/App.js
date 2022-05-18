@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Dashboard from "./pages/Dashboard/";
 import PersonProfile from "./pages/PersonProfile";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./styles.css";
 
 const App = () => {
@@ -32,7 +32,6 @@ const App = () => {
         <h1>Hire Your Team</h1>
         <nav>
           <ul>
-            <Link to="/dashboard">Dashboard</Link>
             <Routes>
               <Route
                 path="/dashboard"
