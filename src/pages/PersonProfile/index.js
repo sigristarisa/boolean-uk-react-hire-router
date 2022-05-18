@@ -9,7 +9,7 @@ function PersonProfile({ addHiringPerson }) {
   useEffect(() => {
     const personData = location.state.person;
     setPerson(personData);
-  }, []);
+  }, [location]);
 
   if (!person) return <p>Loading...</p>;
 

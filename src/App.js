@@ -1,13 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Dashboard from "./pages/Dashboard/";
-// import PeopleListItem from "./pages/Dashboard/components/PeopleListItem";
 import PersonProfile from "./pages/PersonProfile";
 import { Routes, Route, Link } from "react-router-dom";
 import "./styles.css";
 
 const App = () => {
   const [hiredPeople, setHiredPeople] = useState([]);
-  const addHiringPerson = (person) => setHiredPeople([...hiredPeople, person]);
+  const [people, setPeople] = useState([]);
+
+  const removeHiringPerson = (hiredPerson) => {
+    const newPeopleList = people.filter(
+      (person) => person.login.uuid !== hiredPerson.login.uuid
+    );
+    setPeople(newPeopleList);
+  };
+
+  const addHiringPerson = (hiredPerson) => {
+    setHiredPeople([...hiredPeople, hiredPerson]);
+    removeHiringPerson(hiredPerson);
+  };
+
+  useEffect(() => {
+    fetch("https://randomuser.me/api/?results=50")
+      .then((res) => res.json())
+      .then((peopleData) => setPeople(peopleData.results));
+  }, []);
 
   return (
     <>
@@ -19,7 +36,9 @@ const App = () => {
             <Routes>
               <Route
                 path="/dashboard"
-                element={<Dashboard hiredPeople={hiredPeople} />}
+                element={
+                  <Dashboard hiredPeople={hiredPeople} people={people} />
+                }
               />
               <Route
                 path="/dashboard/profile/:id"
